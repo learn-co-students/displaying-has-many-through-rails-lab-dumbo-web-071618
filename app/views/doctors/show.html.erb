@@ -1,0 +1,11 @@
+Doctor Show Page
+
+<li><%= @doctor.name %></li>
+<li><%= @doctor.department %></li>
+<br>
+Appointments:
+<% @doctor.appointments.each do |appointment| %>
+  <li> <%= link_to(appointment.patient.name, patient_path(appointment.patient)) %> </li>
+  <li><%= appointment.appointment_datetime.to_formatted_s(:long).split(" ").insert(3,"at").join(" ")  %></li>
+  <br>
+<% end %>
