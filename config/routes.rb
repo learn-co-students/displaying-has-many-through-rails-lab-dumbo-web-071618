@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
 
-  resources :doctors
-  resources :patients
+  get 'appointments_controller/show'
+
+  get 'patients_controller/index'
+
+  get 'patients_controller/show'
+
+  get 'doctors_controller/index'
+
+  get 'doctors_controller/show'
+
+  resources :doctors, only: [:index,:show]
+  resources :patients, only: [:index,:show]
   resources :appointments, only: [:show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
